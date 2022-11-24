@@ -1,0 +1,25 @@
+const  mongoose = require('mongoosw')
+
+const employeeSchema = mongoose.Schema(
+   {
+    name: {
+        type: String,
+        required: [true, 'Name is required please insert name ']
+    },
+    date_of_bith: {
+        type: Date,
+        required: [true, 'Date of birth is required']
+    },
+    gender: {
+        type: String,
+        required: [true, 'Gender is required']
+    },
+    salary: {
+        type: Number,
+        required: [true, 'Salary is required']
+    }
+   } 
+
+)
+
+ module.exports = mongoose.model('Employee', employeeSchema)
