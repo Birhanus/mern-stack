@@ -1,27 +1,31 @@
+const asyncHandler = require('express-async-handler')
 
-// @desc Get Employee
-// @route GET api/employee
-const getEmployee = (req, res) => {
+/** 
+ * Get Employe 
+ * @desc Get Employee
+ * @route GET api/employee
+ * @author Birhanu Shimles <https://github.com/Birhanus>
+ */
+const getEmployee = asyncHandler(async (req, res) => {
     res.status(200).json({welcome: 'Get employee'})
-}
+})
 
 /**
  * Add Employee
  * @desc add Employee
  * @route POST api/employee 
- * @author  Birhanu Shimles <https://github.com/Birhanus>
  */ 
-const addEmployee = (req, res) => {
+const addEmployee = async (req, res) => {
     console.log(req.body)
     res.status(200).json({Welcome: 'add  employee'})
 }
 
 /**
- * update employee data
+ * Update employee data
  * @desc update Employee
  * @route PUT api/employee/:id
  */ 
-const updateEmployee = (req, res) => {
+const updateEmployee = async (req, res) => {
     res.status(200).json({Welcome: `update employee ${req.params.id}`})
 }
 
@@ -31,7 +35,7 @@ const updateEmployee = (req, res) => {
  * @desc delete Employee
  * @route DELETE api/employee/:id
  */
-const deleteEmployee = (req, res) => {
+const deleteEmployee = async (req, res) => {
     res.status(200).json({Welcome: `Delete employee ${req.params.id}`})
 }
 
