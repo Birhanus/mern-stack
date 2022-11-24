@@ -1,5 +1,8 @@
 const asyncHandler = require('express-async-handler')
 
+const Employee = require('../models/employeeModel')
+
+
 /** 
  * Get Employe 
  * @desc Get Employee
@@ -15,19 +18,19 @@ const getEmployee = asyncHandler(async (req, res) => {
  * @desc add Employee
  * @route POST api/employee 
  */ 
-const addEmployee = async (req, res) => {
+const addEmployee = asyncHandler(async (req, res) => {
     console.log(req.body)
     res.status(200).json({Welcome: 'add  employee'})
-}
+})
 
 /**
  * Update employee data
  * @desc update Employee
  * @route PUT api/employee/:id
  */ 
-const updateEmployee = async (req, res) => {
+const updateEmployee = asyncHandler(async (req, res) => {
     res.status(200).json({Welcome: `update employee ${req.params.id}`})
-}
+})
 
 
 /**
@@ -35,9 +38,9 @@ const updateEmployee = async (req, res) => {
  * @desc delete Employee
  * @route DELETE api/employee/:id
  */
-const deleteEmployee = async (req, res) => {
+const deleteEmployee = asyncHandler(async (req, res) => {
     res.status(200).json({Welcome: `Delete employee ${req.params.id}`})
-}
+})
 
 module.exports ={
     getEmployee,
