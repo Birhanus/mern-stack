@@ -20,10 +20,19 @@ const getEmployee = asyncHandler(async (req, res) => {
  * @route POST api/employee 
  */ 
 const addEmployee = asyncHandler(async (req, res) => {
-    if (!req.body.text) {
+    if (!req.body.name) {
         res.status(400)
         throw new Error('Add the text filed please')
     }
+
+    const employees = await Employee.create({
+        name: req.body.name,
+        date_of_birth: req.body.date_of_birth,
+        gender: req.body.gender,
+        salary: req.body.salary
+    })
+
+    res.status(200).json(employees)
 })
 
 /**
@@ -32,7 +41,16 @@ const addEmployee = asyncHandler(async (req, res) => {
  * @route PUT api/employee/:id
  */ 
 const updateEmployee = asyncHandler(async (req, res) => {
-    res.status(200).json({Welcome: `update employee ${req.params.id}`})
+    const employee = await Employee.findById(req.params.id)
+
+    if (!employee) {
+        res.status(400)
+        throw new Error('employee nof found')
+    }
+
+    const updatedEmployee = await Employee.findByIdAndUpdate(req.params.id, req.body,
+        {new: true,})
+    res.status(200).json(updatedEmployee)
 })
 
 
@@ -42,7 +60,16 @@ const updateEmployee = asyncHandler(async (req, res) => {
  * @route DELETE api/employee/:id
  */
 const deleteEmployee = asyncHandler(async (req, res) => {
-    res.status(200).json({Welcome: `Delete employee ${req.params.id}`})
+
+    const employee = await Employee.findById(req.params.id)
+
+    if (!employee) {
+        res.status(400)
+        throw new Error('employee nof found')
+    }
+
+    await employee.remove()
+    res.status(200).json({id: req.params.id})
 })
 
 module.exports ={
