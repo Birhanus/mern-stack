@@ -6,8 +6,8 @@ const employeeSchema = mongoose.Schema(
         type: String,
         required: [true, 'Name is required please insert name ']
     },
-    date_of_bith: {
-        type: Date,
+    date_of_birth: {
+        type: Number,
         required: [true, 'Date of birth is required']
     },
     gender: {
