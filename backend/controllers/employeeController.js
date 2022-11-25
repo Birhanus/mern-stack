@@ -10,17 +10,20 @@ const Employee = require('../models/employeeModel')
  * @author Birhanu Shimles <https://github.com/Birhanus>
  */
 const getEmployee = asyncHandler(async (req, res) => {
-    res.status(200).json({welcome: 'Get employee'})
+    const employees = await Employee.find()
+    res.status(200).json({employees})
 })
 
 /**
- * Add Employee
+ * Add Employee 
  * @desc add Employee
  * @route POST api/employee 
  */ 
 const addEmployee = asyncHandler(async (req, res) => {
-    console.log(req.body)
-    res.status(200).json({Welcome: 'add  employee'})
+    if (!req.body.text) {
+        res.status(400)
+        throw new Error('Add the text filed please')
+    }
 })
 
 /**

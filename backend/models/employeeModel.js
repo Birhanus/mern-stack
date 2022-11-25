@@ -1,4 +1,4 @@
-const  mongoose = require('mongoosw')
+const  mongoose = require('mongoose')
 
 const employeeSchema = mongoose.Schema(
    {
