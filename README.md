@@ -23,3 +23,7 @@ Install my-project with npm
 Test demo from postmon
 ![ Demo](demo/employees.gif)
 
+Test demo from frontend UI
+![ Demo](demo/frontend.gif)
+
+
