@@ -5,8 +5,7 @@ Rest API that will let you manage employees. API will be able to
 create , list, update and remove employees
 
 ## Deployed website
-- [@[Birhanus](https://mern-stack-frontend-pfkb.onrender.com)]([https://www.github.com/birhanus](https://mern-stack-frontend-pfkb.onrender.com))
-
+- [@https://mern-stack-frontend-pfkb.onrender.com](https://mern-stack-frontend-pfkb.onrender.com)
 ## Installation
 
 Install my-project with npm
