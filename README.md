@@ -29,5 +29,5 @@ Test demo from frontend UI
 
 ## Authors
 
-- [@Birhanus](https://www.github.com/birhanus
+- [@Birhanus](https://www.github.com/birhanus)
 
